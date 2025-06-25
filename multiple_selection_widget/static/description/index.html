@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select2 Multi-Select Widget - Odoo 18</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f4f4f4;
+      padding: 40px;
+      color: #333;
+    }
+    .doc-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #34495e;
+      margin-top: 25px;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    code {
+      background: #eef;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="doc-container">
+    <h1>📌 Select2 Multi-Select Widget Integration – Odoo 18</h1>
+
+    <p>
+      This module introduces a custom reusable multi-select dropdown widget using the <strong>Select2</strong> library. It enhances user experience on website forms by offering a searchable, clearable, multi-select interface.
+    </p>
+
+    <h2>🔧 Key Features</h2>
+    <ul>
+      <li>Applies to any <code>&lt;select widget="select2"&gt;</code> element in website templates.</li>
+      <li>Supports multiple selection, searching, and clearing of values.</li>
+      <li>Dynamically loads <code>select2.js</code> and <code>select2.css</code> only when needed.</li>
+      <li>Logs selected values to the browser console on change.</li>
+      <li>Reusable in any website QWeb template using template inheritance.</li>
+    </ul>
+
+    <h2>⚙️ How It Works</h2>
+    <ol>
+      <li>The JavaScript widget (`ReusableSelect2`) extends Odoo's `publicWidget` system.</li>
+      <li>It automatically detects any <code>&lt;select widget="select2"&gt;</code> element on the page.</li>
+      <li>If Select2 is not already loaded, it dynamically loads the JS and CSS files.</li>
+      <li>The dropdown is initialized with placeholder and clearable options.</li>
+    </ol>
+
+    <h2>📄 Example Usage</h2>
+    <p>Add this snippet inside any inherited template where you want to use the widget:</p>
+    <pre><code>&lt;select widget="select2" name="your_field_name" multiple="multiple" data-placeholder="Select options"&gt;
+  &lt;option value="opt1"&gt;Option 1&lt;/option&gt;
+  &lt;option value="opt2"&gt;Option 2&lt;/option&gt;
+  &lt;option value="opt3"&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+
+    <h2>📁 File Overview</h2>
+    <ul>
+      <li><strong>JS:</strong> <code>static/src/js/m2m_select2_widget.js</code></li>
+      <li><strong>Assets:</strong> <code>static/lib/select2/</code> (JS/CSS)</li>
+      <li><strong>Manifest:</strong> Includes widget JS in <code>web.assets_frontend</code></li>
+    </ul>
+
+    <h2>✅ Notes</h2>
+    <ul>
+      <li> Always add <code>multiple="multiple"</code> to the <code>&lt;select&gt;</code> tag to enable multi-select functionality with Select2.</li>
+      <li>No specific template is required; you can inherit any template where you need the dropdown.</li>
+      <li>Make sure to place the select field within a valid <code>&lt;form&gt;</code> block if submitting data.</li>
+      <li>You can customize the Select2 options further in the JS widget if needed.</li>
+    </ul>
+  </div>
+</body>
+</html>
